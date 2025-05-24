@@ -5,6 +5,7 @@ import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
@@ -23,6 +24,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "StorePurchase") // Admin purchase table
+@Entity
 public class StorePurchase extends BaseEntity
 {
 	@ManyToOne

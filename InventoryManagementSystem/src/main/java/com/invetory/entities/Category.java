@@ -3,6 +3,7 @@ package com.invetory.entities;
 import java.util.List;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -18,6 +19,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "Categories")
+@Entity
 public class Category extends BaseEntity
 {
 	@Column(name = "CategoryName", nullable = false)

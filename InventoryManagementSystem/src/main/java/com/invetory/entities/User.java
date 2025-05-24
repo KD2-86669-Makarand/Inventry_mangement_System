@@ -1,6 +1,7 @@
 package com.invetory.entities;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
@@ -18,6 +19,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "Users")
+@Entity
 public class User extends BaseEntity
 {	
 	@Column(name = "firstName", nullable = false)

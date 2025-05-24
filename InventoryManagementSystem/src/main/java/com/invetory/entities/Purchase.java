@@ -2,6 +2,7 @@ package com.invetory.entities;
 
 import java.util.List;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.OneToMany;
@@ -16,6 +17,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "CustomerPurchase")
+@Entity
 public class Purchase extends BaseEntity
 {
 	@OneToMany

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.boot.context.properties.bind.Name;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -20,6 +21,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "Suppliers")
+@Entity
 public class Supplier extends BaseEntity
 {
 	@Column(name = "SupplierName", nullable = false)
