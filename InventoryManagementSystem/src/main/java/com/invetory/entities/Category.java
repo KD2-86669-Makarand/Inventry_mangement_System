@@ -18,13 +18,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "Categories")
-public class Category 
+public class Category extends BaseEntity
 {
-	@Id 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CategoryId")
-	private Long categoryId;
-
 	@Column(name = "CategoryName", nullable = false)
     private String categoryName;
 	

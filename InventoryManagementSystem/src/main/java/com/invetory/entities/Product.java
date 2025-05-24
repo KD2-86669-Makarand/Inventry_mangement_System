@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -19,38 +20,35 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "Products")
-public class Product 
+public class Product extends BaseEntity
 {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ProductId")
-	private Long productId;
-	
 	@Column(name = "ProductName", nullable = false)
 	private String productName;
 	
-//	@Column(name = "ProductImage")
-//	private String productImage;
+	@Lob
+	@Column(name = "ProductImage")
+	private Byte[] productImage;
 	
 	@Column(name = "Price")
 	private double price;
 	
 	@Column(name = "Quantity")
-	private int quantity;
+	private int availableQuantity;
 	
 	@Column(name = "Status")
 	@Enumerated(EnumType.STRING)
     private ProductStatus status;
 	
 	@ManyToOne
-	@JoinColumn(name = "category_id")
+	@JoinColumn(name = "categoryId")
 	private Category category;
 
 	@ManyToOne
-	@JoinColumn(name = "supplier_id")
+	@JoinColumn(name = "supplierId")
 	private Supplier supplier;
 
-	
+	@ManyToOne
+	private StorePurchase purchase;
 	
 }
 

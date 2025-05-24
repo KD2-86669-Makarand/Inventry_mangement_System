@@ -1,14 +1,10 @@
 package com.invetory.entities;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,23 +15,17 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "Purchase")
-public class Purchase 
+@Table(name = "CustomerPurchase")
+public class Purchase extends BaseEntity
 {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "OrderId")
-	private Long orderId;
+	@OneToMany
+	private List<Product> products;
 	
-	@ManyToOne
-	private Supplier supplier;
+	private int quantity;
 	
-	private LocalDateTime createdAt;
+	private double totalAmount;
 	
-	 @ManyToOne
-	 private User PurchasedBy;
-	 
 	 @Enumerated(EnumType.STRING)
-	 private OrderStatus status;
+	 private OrderStatus orderStatus;
 	
 }

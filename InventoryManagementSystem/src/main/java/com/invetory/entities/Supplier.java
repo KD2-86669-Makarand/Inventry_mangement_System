@@ -20,13 +20,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "Suppliers")
-public class Supplier 
+public class Supplier extends BaseEntity
 {
-	@Id 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "SupplierId")
-	private Long supplierId;
-
 	@Column(name = "SupplierName", nullable = false)
     private String supplierName;
 	
