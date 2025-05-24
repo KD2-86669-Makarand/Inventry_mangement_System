@@ -1,6 +1,8 @@
 package com.invetory.entities;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,7 +23,7 @@ public class User
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "userId")
-	private int userId;
+	private Long userId;
 	
 	@Column(name = "firstName", nullable = false)
 	private String firstName;
@@ -39,6 +41,16 @@ public class User
 	@Column(name = "Phone", nullable = false, unique = true)
 	private String phone;
 	
+	
 	@Column(name = "Address", nullable = true, length = 1000)
 	private String address;
+
+	@Column(name = "status")
+	@Enumerated(EnumType.STRING)
+	private UserStatus userStatus;
+
+	@Column(name = "Role")
+	@Enumerated(EnumType.STRING)
+	private Role userRole;
+	
 }

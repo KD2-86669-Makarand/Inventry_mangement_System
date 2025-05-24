@@ -1,12 +1,13 @@
 package com.invetory.entities;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -18,44 +19,23 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "Products")
-public class Product 
+@Table(name = "Purchase")
+public class Purchase 
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ProductId")
-	private Long productId;
-	
-	@Column(name = "ProductName", nullable = false)
-	private String productName;
-	
-//	@Column(name = "ProductImage")
-//	private String productImage;
-	
-	@Column(name = "Price")
-	private double price;
-	
-	@Column(name = "Quantity")
-	private int quantity;
-	
-	@Column(name = "Status")
-	@Enumerated(EnumType.STRING)
-    private ProductStatus status;
+	@Column(name = "OrderId")
+	private Long orderId;
 	
 	@ManyToOne
-	@JoinColumn(name = "category_id")
-	private Category category;
-
-	@ManyToOne
-	@JoinColumn(name = "supplier_id")
 	private Supplier supplier;
-
 	
+	private LocalDateTime createdAt;
+	
+	 @ManyToOne
+	 private User PurchasedBy;
+	 
+	 @Enumerated(EnumType.STRING)
+	 private OrderStatus status;
 	
 }
-
-	
-	
-	
-	
-

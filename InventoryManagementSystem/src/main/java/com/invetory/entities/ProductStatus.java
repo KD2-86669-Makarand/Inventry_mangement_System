@@ -1,6 +1,7 @@
 package com.invetory.entities;
 
-public enum ProductStatus {
-	AVAILABLE,
-    UNAVAILABLE
+public enum ProductStatus 
+{
+	IN_STOCK,
+    OUT_OF_STOCK
 }
