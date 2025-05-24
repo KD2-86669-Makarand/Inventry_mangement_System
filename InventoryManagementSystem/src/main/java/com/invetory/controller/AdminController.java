@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/admin")
 public class AdminController {
 
-	@
-	public ResponseEntity<?> purchase(){
-		
-	}
+//	@
+//	public ResponseEntity<?> purchase(){
+//		
+//	}
 	
 	
 }
