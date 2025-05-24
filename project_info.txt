@@ -1,0 +1,59 @@
+Admin :
+1. add
+2. remove
+3. update
+4. delete
+5. inactive
+6. generate innovoice
+7. sales report (using circular graph)
+8. product images
+
+product add -> update the count of specific product -> if product sold -> decrese count -> show new available count
+
+CRATE DATABASE einventory;
+
+ADMIN :
+	adminId;
+	name;
+	email;
+	password;
+	phone;	
+
+USER :
+	userId;
+	first_name;
+	last_name;
+	email;
+	password;
+	phone;
+	full_address;
+
+PURCHASE : 
+	Purchase_id;
+	suplier_name; (xyz enterprises)
+	Purchase_date;
+	Total_amount;
+	List<Product>;
+
+PRODUCTS (add) :
+	product_Id;
+	product_name;
+	Product_Img;
+	price;
+	quantity;
+	enum : status; (available/unavailable)
+
+SALES (sold) :
+	sales_id;
+	sold_at LocalDateTime;
+	customer_id;
+	List<Product>;
+	total_amount;
+
+
+	
+	
+
+	
+	
+	
