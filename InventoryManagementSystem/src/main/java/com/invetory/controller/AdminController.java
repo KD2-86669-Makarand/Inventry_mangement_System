@@ -1,5 +1,6 @@
 package com.invetory.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -7,14 +8,20 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.invetory.dto.ProductDto;
 import com.invetory.entities.Product;
+import com.invetory.service.ProductService;
 
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
 	
+	@Autowired
+	private ProductService productService;
+	
+	
 	@GetMapping("/list")
-	public ResponseEntity<?> purchaseList(Product p) {
+	public ResponseEntity<?> purchaseList(ProductDto p) {
 		return	ResponseEntity.ok().body(null);
 	}
 
@@ -29,7 +36,7 @@ public class AdminController {
 	}
 
 	@GetMapping("/stock")
-	public ResponseEntity<?> stockall(Product p) {
+	public ResponseEntity<?> stockall(ProductDto p) {
 		return	ResponseEntity.ok().body(null);
 	}
 
