@@ -1,8 +1,13 @@
 package com.invetory.dto;
 
 import jakarta.validation.constraints.NotBlank;
-
-public class SignInDto {
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+@Getter
+@Setter
+@ToString
+public class AuthRequest {
 	
 	@NotBlank(message = "Email is required")
 	private String email;

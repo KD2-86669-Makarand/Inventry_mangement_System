@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.invetory.dto.SignInDto;
+import com.invetory.dto.AuthRequest;
 import com.invetory.dto.SignUpDto;
 import com.invetory.entities.User;
 import com.invetory.service.UserService;
@@ -23,7 +23,7 @@ public class LoginController {
 	private UserService user;
 	
 	@GetMapping("/signin")
-	public ResponseEntity<?> signIn(SignInDto u){
+	public ResponseEntity<?> signIn(AuthRequest u){
 		return ResponseEntity.ok().body(u);
 	} 
 	
