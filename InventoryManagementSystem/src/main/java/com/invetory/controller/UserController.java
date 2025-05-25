@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.invetory.entities.Product;
+import com.invetory.entities.ProductEntity;
 import com.invetory.service.ProductService;
 
 @RestController
@@ -29,7 +29,7 @@ public class UserController {
 	}
 
 	@PostMapping("/cart")
-	public ResponseEntity<?>addCart(Product p){
+	public ResponseEntity<?>addCart(ProductEntity p){
 		
 		return ResponseEntity.ok().body(p);
 		
@@ -42,7 +42,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/purchase")
-	public ResponseEntity<?>purchase(List<Product> l){
+	public ResponseEntity<?>purchase(List<ProductEntity> l){
 		return	ResponseEntity.ok().body(null);
 	}
 	

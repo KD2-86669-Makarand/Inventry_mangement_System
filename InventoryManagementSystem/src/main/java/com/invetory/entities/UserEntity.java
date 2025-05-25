@@ -20,7 +20,7 @@ import lombok.Setter;
 @Setter
 @Table(name = "Users")
 @Entity
-public class User extends BaseEntity
+public class UserEntity extends BaseEntity
 {	
 	@Column(name = "firstName", nullable = false)
 	private String firstName;

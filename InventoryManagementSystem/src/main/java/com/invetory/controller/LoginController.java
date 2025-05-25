@@ -1,39 +1,50 @@
 package com.invetory.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.invetory.dto.AuthRequest;
-import com.invetory.dto.SignUpDto;
-import com.invetory.entities.User;
+import com.invetory.dto.UserDto;
+import com.invetory.entities.UserEntity;
 import com.invetory.service.UserService;
 
-@RestController
+
+import jakarta.validation.Valid;
+
+
 @RequestMapping("/login")
+@RestController
 public class LoginController {
 
 	
 	@Autowired
-	private UserService user;
+	private UserService userService;
 	
-	@GetMapping("/signin")
-	public ResponseEntity<?> signIn(AuthRequest u){
-		return ResponseEntity.ok().body(u);
+	@PostMapping("/signin")
+	public ResponseEntity<?> signIn( @RequestBody @Valid AuthRequest dto){
+		
+		UserDto res=userService.SignInUser(dto);
+		return ResponseEntity.status(HttpStatus.OK).body(res);
 	} 
 	
 	@PostMapping("/signup")
-	public ResponseEntity<?> signUp(SignUpDto u){
-		return ResponseEntity.ok().body(u);
+	public ResponseEntity<?> signUp(@RequestBody @Valid UserDto dto){
+		System.out.println(dto);
+		UserDto res=userService.SignupUser(dto);
+		return ResponseEntity.status(HttpStatus.CREATED).body(dto);
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<?>updateUser(User u){
+	public ResponseEntity<?>updateUser(UserEntity u){
 		return ResponseEntity.ok().body(u);
 	}
 	

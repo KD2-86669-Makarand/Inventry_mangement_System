@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.invetory.dto.ProductDto;
-import com.invetory.entities.Product;
+import com.invetory.entities.ProductEntity;
 import com.invetory.service.ProductService;
 
 @RestController
@@ -26,12 +26,12 @@ public class AdminController {
 	}
 
 	@PutMapping("/return")
-	public ResponseEntity<?> Return(Product p) {
+	public ResponseEntity<?> Return(ProductEntity p) {
 		return	ResponseEntity.ok().body(null);
 	}
 
 	@PostMapping("/one")
-	public ResponseEntity<?> purchaseOne(Product p) {
+	public ResponseEntity<?> purchaseOne(ProductEntity p) {
 		return	ResponseEntity.ok().body(null);
 	}
 
@@ -41,7 +41,7 @@ public class AdminController {
 	}
 
 	@GetMapping("detail")
-	public ResponseEntity<?> productDetail(Product p) {
+	public ResponseEntity<?> productDetail(ProductEntity p) {
 		return	ResponseEntity.ok().body(null);
 	}
 

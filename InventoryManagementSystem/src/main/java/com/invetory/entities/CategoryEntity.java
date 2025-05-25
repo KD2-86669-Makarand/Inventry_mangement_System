@@ -20,7 +20,7 @@ import lombok.Setter;
 @Setter
 @Table(name = "Categories")
 @Entity
-public class Category extends BaseEntity
+public class CategoryEntity extends BaseEntity
 {
 	@Column(name = "CategoryName", nullable = false)
     private String categoryName;
@@ -29,5 +29,5 @@ public class Category extends BaseEntity
     private String description;
 
     @OneToMany(mappedBy = "category")
-    private List<Product> products;
+    private List<ProductEntity> products;
 }

@@ -18,10 +18,10 @@ import lombok.Setter;
 @Setter
 @Table(name = "CustomerPurchase")
 @Entity
-public class Purchase extends BaseEntity
+public class PurchaseEntity extends BaseEntity
 {
 	@OneToMany
-	private List<Product> products;
+	private List<ProductEntity> products;
 	
 	private int quantity;
 	

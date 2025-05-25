@@ -22,7 +22,7 @@ import lombok.Setter;
 @Setter
 @Table(name = "Products")
 @Entity
-public class Product extends BaseEntity
+public class ProductEntity extends BaseEntity
 {
 	@Column(name = "ProductName", nullable = false)
 	private String productName;
@@ -43,14 +43,14 @@ public class Product extends BaseEntity
 	
 	@ManyToOne
 	@JoinColumn(name = "categoryId")
-	private Category category;
+	private CategoryEntity category;
 
 	@ManyToOne
 	@JoinColumn(name = "supplierId")
-	private Supplier supplier;
+	private SupplierEntity supplier;
 
 	@ManyToOne
-	private StorePurchase purchase;
+	private StorePurchaseEntity purchase;
 	
 }
 

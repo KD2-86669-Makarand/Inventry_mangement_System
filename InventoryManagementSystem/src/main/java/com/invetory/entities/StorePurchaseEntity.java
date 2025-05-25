@@ -25,18 +25,18 @@ import lombok.Setter;
 @Setter
 @Table(name = "StorePurchase") // Admin purchase table
 @Entity
-public class StorePurchase extends BaseEntity
+public class StorePurchaseEntity extends BaseEntity
 {
 	@ManyToOne
-	private Supplier supplier;
+	private SupplierEntity supplier;
 	
 	 @ManyToOne
-	 private User PurchasedBy;
+	 private UserEntity PurchasedBy;
 	 
 	 @Enumerated(EnumType.STRING)
 	 private OrderStatus status;
 	 
 	 @OneToMany(mappedBy = "purchase", cascade = CascadeType.ALL)
-	    private List<Product> items;
+	    private List<ProductEntity> items;
 	
 }

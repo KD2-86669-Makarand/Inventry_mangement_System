@@ -22,7 +22,7 @@ import lombok.Setter;
 @Setter
 @Table(name = "Suppliers")
 @Entity
-public class Supplier extends BaseEntity
+public class SupplierEntity extends BaseEntity
 {
 	@Column(name = "SupplierName", nullable = false)
     private String supplierName;
@@ -37,6 +37,6 @@ public class Supplier extends BaseEntity
     private String address;
 
     @OneToMany(mappedBy = "supplier")
-    private List<Product> products;
+    private List<ProductEntity> products;
 
 }
