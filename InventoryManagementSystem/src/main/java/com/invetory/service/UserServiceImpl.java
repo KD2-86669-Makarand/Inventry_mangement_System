@@ -8,7 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.invetory.custom_exception.ResourceNotFoundException;
 import com.invetory.dto.AuthRequest;
 import com.invetory.dto.UserDto;
+import com.invetory.entities.Role;
 import com.invetory.entities.UserEntity;
+import com.invetory.entities.UserStatus;
 import com.invetory.repository.UserRepository;
 
 import jakarta.validation.Valid;
@@ -28,7 +30,8 @@ public class UserServiceImpl implements UserService{
 	public UserDto SignupUser(@Valid UserDto dto) {
 		
 		UserEntity user=modelMapper.map(dto, UserEntity.class);
-		
+		user.setUserStatus(UserStatus.ACTIVE);
+		user.setUserRole(Role.USER);
 		UserEntity persitstentUser=userRepository.save(user);
 		
 		return modelMapper.map(persitstentUser, UserDto.class);
