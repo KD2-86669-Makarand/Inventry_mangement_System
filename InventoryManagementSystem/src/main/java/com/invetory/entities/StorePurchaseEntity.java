@@ -31,7 +31,7 @@ public class StorePurchaseEntity extends BaseEntity
 	private SupplierEntity supplier;
 	
 	 @ManyToOne
-	 private UserEntity PurchasedBy;
+	 private UserEntity purchasedBy;
 	 
 	 @Enumerated(EnumType.STRING)
 	 private OrderStatus status;

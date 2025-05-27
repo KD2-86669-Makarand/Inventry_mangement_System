@@ -19,7 +19,7 @@ public class SupplierDto
 {
     private String supplierName;
 	
-//    private String email;
+    private String email;
 	
     private String contactNumber;
 	

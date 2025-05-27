@@ -1,7 +1,6 @@
 package com.invetory.service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -33,16 +32,16 @@ public class SupplierServiceImpl  implements SupplierService
 	}
 
 	@Override
-	public ApiResponse updateSupplier(Long supplierId, SupplierDto supplierDto) {
-		Optional<SupplierEntity> optSupplier = supplierRepository.findById(supplierId);
-		if(optSupplier.isPresent())
-		{
-			SupplierEntity supplier = optSupplier.get();
+	public ApiResponse updateSupplier(Long supplierId, SupplierDto supplierDto) 
+	{
+		 SupplierEntity supplier = supplierRepository.findById(supplierId)
+			        .orElseThrow(() -> new RuntimeException("Supplier not found with ID: " + supplierId));
+
 			supplier.setSupplierName(supplierDto.getSupplierName());
 			supplier.setContactNumber(supplierDto.getContactNumber());
 			supplier.setAddress(supplierDto.getAddress());
 			supplierRepository.save(supplier);
-		}
+		
 		return new ApiResponse("Supplier Updated Successfully With ID : " + supplierId);
 	}
 
@@ -55,6 +54,15 @@ public class SupplierServiceImpl  implements SupplierService
 				.map(supplier -> modelMapper.map(supplier, SupplierDto.class))
 				.collect(Collectors.toList());
 	}
+
+	@Override
+	public SupplierDto getSupplierById(Long id) 
+	{
+	    SupplierEntity supplier = supplierRepository.findById(id)
+	        .orElseThrow(() -> new RuntimeException("Supplier not found with ID: " + id));
+	    return modelMapper.map(supplier, SupplierDto.class);
+	}
+
 	
 	
 	

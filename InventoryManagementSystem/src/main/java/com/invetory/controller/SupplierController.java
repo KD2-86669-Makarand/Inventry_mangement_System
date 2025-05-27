@@ -38,12 +38,16 @@ public class SupplierController
 		return ResponseEntity.ok(supplierService.updateSupplier(id, supplierDto));
 	}
 	
+	@GetMapping("/get-supplier/{supplierId}")
+	public ResponseEntity<SupplierDto> getById(@PathVariable Long supplierId)
+	{
+		return ResponseEntity.ok(supplierService.getSupplierById(supplierId));
+	}
+	
 	@GetMapping("/get-all-suppliers")
 	public ResponseEntity<List<SupplierDto>> getAllSupplliers()
 	{
 		return ResponseEntity.ok(supplierService.getAllSuppliers());
 	}
-	
-	
-	
+
 }

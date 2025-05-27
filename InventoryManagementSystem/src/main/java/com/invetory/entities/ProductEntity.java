@@ -27,6 +27,9 @@ public class ProductEntity extends BaseEntity
 	@Column(name = "ProductName", nullable = false)
 	private String productName;
 	
+	@Column(name = "ProductDescription")
+	private String description;
+	
 	@Lob
 	@Column(name = "ProductImage")
 	private Byte[] productImage;
@@ -53,9 +56,3 @@ public class ProductEntity extends BaseEntity
 	private StorePurchaseEntity purchase;
 	
 }
-
-	
-	
-	
-	
-
